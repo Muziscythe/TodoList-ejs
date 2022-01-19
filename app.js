@@ -7,7 +7,9 @@ const _ = require("lodash");
 
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/TodolistDB', {useNewUrlParser : true});
+const port = process.env.PORT || 3000;
+
+mongoose.connect('mongodb+srv://muzi:Password1@cluster0.tnuoj.mongodb.net/TodolistDB?retryWrites=true&w=majority', {useNewUrlParser : true});
 const itemSchema = {
   name: String
 };
@@ -121,6 +123,6 @@ app.get("/:customListName", function(req,res){
 });
 
 
-app.listen(3000, function() {
+app.listen(port, function() {
   console.log("Server started on port 3000");
 });
